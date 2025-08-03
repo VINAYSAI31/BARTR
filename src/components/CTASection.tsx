@@ -214,7 +214,7 @@ const CTASection = () => {
           <Users className="w-6 h-6 text-accent" />
         </div>
       </div>
-      <Toaster position="bottom-right" reverseOrder={false} />;
+             <Toaster position="bottom-right" reverseOrder={false} />
     </section>
   );
 };

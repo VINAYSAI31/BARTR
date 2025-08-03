@@ -11,6 +11,7 @@ import {
   Zap,
   Shield,
 } from "lucide-react";
+import { Toaster, toast } from "react-hot-toast";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -174,28 +175,49 @@ const HowItWorksSection = () => {
 
         {/* Bottom CTA */}
         <div
-          ref={ctaRef}
-          data-aos="fade-up" // 👈 Animation type
-          data-aos-delay="300" // 👈 Delay in milliseconds
-          className="text-center text-[#6366f1]"
-        >
-          <div className="bg-background/80 backdrop-blur-sm border border-border/50 rounded-2xl p-8 mt-20 shadow-elegant hover:-translate-y-2 transition-all duration-500 ">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Shield className="w-6 h-6 text-secondary" />
-              <span className="text-2xl font-semibold">
-                100% Secure & Verified
-              </span>
-            </div>
-            <p className="text-muted-foreground mb-6 text-lg">
-              Every trader is verified and every transaction is protected by our
-              advanced security system
-            </p>
-            <Button variant="premium" size="lg" className="group">
-              Start Your First Trade
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </div>
-        </div>
+  ref={ctaRef}
+  data-aos="fade-up"
+  data-aos-delay="300"
+  className="flex justify-center text-[#6366f1]"
+>
+  <div className="bg-background/80 backdrop-blur-sm border border-border/50 rounded-2xl p-8 shadow-elegant hover:-translate-y-2 transition-all duration-500 w-full max-w-2xl">
+    <h3 className="text-3xl font-bold mb-6 text-center">
+      🎟 Token-Based Trading System
+    </h3>
+
+    <ul className="space-y-4 text-left text-muted-foreground text-lg leading-relaxed">
+      {[
+        "Each user starts with 10 free tokens.",
+        "1 token is deducted from both parties after every successful trade.",
+        "Refer friends using your invite link to earn bonus tokens.",
+        "This system is separate from delivery costs.",
+        "After using all tokens, users can choose to purchase more.",
+        "Only one verified phone number gets 10 tokens — to prevent email abuse.",
+      ].map((text, idx) => (
+        <li key={idx} className="flex items-start gap-3">
+          <span className="text-secondary mt-1">✓</span>
+          <span>{text}</span>
+        </li>
+      ))}
+    </ul>
+
+    <div className="mt-8 text-center">
+      <Button
+        variant="premium"
+        size="lg"
+        className="group"
+        onClick={() =>
+          toast("💡 Launching soon! You’ll be able to earn & spend tokens.")
+        }
+      >
+        Learn More
+        <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1 ml-2" />
+      </Button>
+    </div>
+  </div>
+</div>
+
+
       </div>
 
       <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -231,6 +253,8 @@ const HowItWorksSection = () => {
           </div>
         ))}
       </div>
+      <Toaster position="bottom-right" reverseOrder={false} />;
+
     </section>
   );
 };

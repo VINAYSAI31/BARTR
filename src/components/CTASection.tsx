@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,7 +12,20 @@ const CTASection = () => {
   const bottomRef = useRef<HTMLDivElement>(null);
   const [name, setName] = useState("");
   const [interest, setInterest] = useState("");
-  
+
+  React.useEffect(() => {
+    // Dynamically load the Visme Forms script
+    const script = document.createElement("script");
+    script.src = "https://static-bundles.visme.co/forms/vismeforms-embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup: remove the script when the component is unmounted
+      document.body.removeChild(script);
+    };
+  }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -91,51 +104,15 @@ const CTASection = () => {
             </p>
 
             {/* Email Signup Form */}
-            <form onSubmit={handleSubmit} className="max-w-xl mx-auto mb-8 relative z-20">
-  <div className="flex flex-col gap-4">
-    {/* Name Input */}
-    <Input
-      type="text"
-      placeholder="Your name"
-      value={name}
-      onChange={(e) => setName(e.target.value)}
-      className="h-12 border-border/50 bg-background/50 backdrop-blur-sm text-white"
-      required
-    />
-
-    {/* Email Input */}
-    <div className="relative">
-      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-      <Input
-        type="email"
-        placeholder="Your email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className="pl-10 h-12 border-border/50 bg-background/50 backdrop-blur-sm text-white"
-        required
-      />
-    </div>
-
-    {/* Trade Interest Input */}
-    <textarea
-      placeholder="What do you want to trade?"
-      value={interest}
-      onChange={(e) => setInterest(e.target.value)}
-      className="h-24 resize-none rounded-md border border-border/50 bg-background/50 backdrop-blur-sm p-3 text-white placeholder:text-muted-foreground"
-      required
-    ></textarea>
-
-    <Button
-      type="submit"
-      variant="premium"
-      size="lg"
-      className="h-12 px-6"
-      disabled={isSubmitted}
-    >
-      {isSubmitted ? "Added!" : "Join Waitlist"}
-    </Button>
-  </div>
-</form>
+            <div
+        className="visme_d"
+        data-title="Blog Contact Form"
+        data-url="g0ok0z70-blog-contact-form"
+        data-domain="forms"
+        data-full-page="false"
+        data-min-height="500px"
+        data-form-id="139455"
+      ></div>
 
 
             {/* Social Proof */}

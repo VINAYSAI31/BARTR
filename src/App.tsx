@@ -7,7 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import WelcomeScreen from "./components/WelcomeScreen";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"; // Make sure it's react, not "next"
+
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -18,19 +19,18 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <Analytics />
-
 
         {showWelcome ? (
           <WelcomeScreen onLoadingComplete={() => setShowWelcome(false)} />
         ) : (
           <BrowserRouter>
+            <Analytics /> {/* ✅ Place it here inside BrowserRouter */}
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
-         )}
+        )}
       </TooltipProvider>
     </QueryClientProvider>
   );

@@ -7,8 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import WelcomeScreen from "./components/WelcomeScreen";
-import GhostCursor from "./components/GhostCursor.jsx";
-
+import { Analytics } from "@vercel/analytics/next"
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -19,8 +18,8 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        {/* GhostCursor applies globally */}
-        <GhostCursor />
+        <Analytics />
+
 
         {showWelcome ? (
           <WelcomeScreen onLoadingComplete={() => setShowWelcome(false)} />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -80,13 +81,12 @@ const Navbar = () => {
             <div className="flex items-center justify-between h-16">
                 {/* Logo */}
                 <div className="flex-shrink-0">
-                    <a
-                        href="#Home"
-                        onClick={(e) => scrollToSection(e, "#Home")}
+                    <Link
+                        to="/"
                         className="text-2xl font-bold bg-gradient-to-r from-[#a855f7] to-[#6366f1] bg-clip-text text-transparent"
                     >
                         BARTR
-                    </a>
+                    </Link>
                 </div>
     
                 {/* Desktop Navigation */}

@@ -104,13 +104,16 @@ const HeroSection = () => {
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </Button>
 
-          {/* <Button
-            variant="outline"
-            size="xl"
-            className="bg-primary-foreground/10 backdrop-blur-sm hover:bg-primary-foreground/20 border-primary-foreground/30 text-primary-foreground"
-          >
-            Explore Services
-          </Button> */}
+          <Link to="/trade">
+            <Button
+              variant="outline"
+              size="xl"
+              className="bg-primary-foreground/10 backdrop-blur-sm hover:bg-primary-foreground/20 border-primary-foreground/30 text-primary-foreground"
+            >
+              Trade Now
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

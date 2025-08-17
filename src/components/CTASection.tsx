@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Mail, Users, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const CTASection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -122,19 +123,16 @@ const CTASection = () => {
             </div>
 
             {/* Action Buttons */}
-            <Button
-              variant="hero"
-              size="xl"
-              className="group"
-              onClick={() =>
-                toast(
-                  "🚧 We're not live yet — hang tight, launch is coming soon!"
-                )
-              }
-            >
-              Start Trading Now
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <Link to="/trade">
+              <Button
+                variant="hero"
+                size="xl"
+                className="group"
+              >
+                Start Trading Now
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
 
             {/* Trust Indicators */}
             <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-border/30">

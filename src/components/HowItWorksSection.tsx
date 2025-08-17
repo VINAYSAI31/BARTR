@@ -7,7 +7,7 @@ import {
   Search,
   Users,
   CheckCircle,
-  ArrowRight,
+  ArrowRight, 
   Zap,
   Shield,
 } from "lucide-react";

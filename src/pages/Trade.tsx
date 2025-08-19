@@ -7,11 +7,21 @@ import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Sparkles, TrendingUp } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
+type TradeFormData = {
+  name: string;
+  email: string;
+  wantToTrade: string;
+  tradeWith: string;
+  image: File | null;
+};
+
 const Trade = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<TradeFormData>({
     name: "",
+    email: "",
     wantToTrade: "",
     tradeWith: "",
+    image: null,
   });
   const { toast } = useToast();
 
@@ -28,6 +38,14 @@ const Trade = () => {
     }));
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] ?? null;
+    setFormData(prev => ({
+      ...prev,
+      image: file,
+    }));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -41,8 +59,10 @@ const Trade = () => {
     // Reset form
     setFormData({
       name: "",
+      email: "",
       wantToTrade: "",
       tradeWith: "",
+      image: null,
     });
   };
 
@@ -111,6 +131,23 @@ const Trade = () => {
                 />
               </div>
 
+              {/* Email Field */}
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-2xl font-bold bg-gradient-to-r from-accent via-secondary to-accent bg-clip-text text-transparent animate-shimmer bg-[size:200%_100%] mb-4 group-[.in-view]:animate-float-sway">
+                  Your Email
+                </Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="Enter your email address"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="bg-background/50 border-secondary/30 text-primary-foreground placeholder:text-primary-foreground/50 focus:border-secondary h-16 text-lg px-6"
+                />
+              </div>
+
               {/* What to Trade Field */}
               <div className="space-y-2">
                 <Label htmlFor="wantToTrade" className="text-2xl font-bold bg-gradient-to-r from-accent via-secondary to-accent bg-clip-text text-transparent animate-shimmer bg-[size:200%_100%] mb-4 group-[.in-view]:animate-float-sway">
@@ -142,6 +179,21 @@ const Trade = () => {
                   required
                   rows={4}
                   className="bg-background/50 border-secondary/30 text-primary-foreground placeholder:text-primary-foreground/50 focus:border-secondary resize-none"
+                />
+              </div>
+
+              {/* Image Upload Field */}
+              <div className="space-y-2">
+                <Label htmlFor="image" className="text-2xl font-bold bg-gradient-to-r from-accent via-secondary to-accent bg-clip-text text-transparent animate-shimmer bg-[size:200%_100%] mb-4 group-[.in-view]:animate-float-sway">
+                  Upload an image of what you want to trade (optional)
+                </Label>
+                <Input
+                  id="image"
+                  name="image"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  className="bg-background/50 border-secondary/30 text-primary-foreground placeholder:text-primary-foreground/50 focus:border-secondary h-16 text-lg px-6"
                 />
               </div>
 

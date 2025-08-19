@@ -7,8 +7,7 @@ import Working from "@/components/Working";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <div className="min-h-screen w-full overflow-x-hidden">
       <HeroSection />
       <HowItWorksSection />
       {/* <Working/> */}

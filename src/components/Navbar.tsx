@@ -11,7 +11,6 @@ const Navbar = () => {
         { href: "#Home", label: "Home" },
         { href: "#how", label: "How it works"},
         { href: "#features", label: "Features" },
-        { href: "#bart", label: "Bart+" },
         { href: "#Contact", label: "Contact" },
     ];
 
@@ -124,7 +123,7 @@ const Navbar = () => {
                 <div className="md:hidden">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className={`relative p-2 text-[#e2d3fd] hover:text-white transition-transform duration-300 ease-in-out transform ${
+                        className={`relative p-2  text-[#e2d3fd] hover:text-white transition-transform duration-300 ease-in-out transform ${
                             isOpen ? "rotate-90 scale-125" : "rotate-0 scale-100"
                         }`}
                     >
@@ -139,38 +138,38 @@ const Navbar = () => {
         </div>
     
         {/* Mobile Menu Overlay */}
-        <div
-            className={`md:hidden h-2/5 fixed inset-0 bg-[#030014] transition-all duration-300 ease-in-out ${
-                isOpen
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-[-100%] pointer-events-none"
-            }`}
-            style={{ top: "64px" }}
-        >
-            <div className="flex flex-col h-full">
-                <div className="px-4 py-6 space-y-4 flex-1 ">
-                    {navItems.map((item, index) => (
-                        <a
-                            key={item.label}
-                            href={item.href}
-                            onClick={(e) => scrollToSection(e, item.href)}
-                            className={`block px-4 py-3 text-xl font-medium transition-all duration-300 ease ${
-                                activeSection === item.href.substring(1)
-                                    ? "bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent font-semibold"
-                                    : "text-[#e2d3fd] hover:text-white"
-                            }`}
-                            style={{
-                                transitionDelay: `${index * 100}ms`,
-                                transform: isOpen ? "translateX(0)" : "translateX(50px)",
-                                opacity: isOpen ? 1 : 0,
-                            }}
-                        >
-                            {item.label}
-                        </a>
-                    ))}
-                </div>
-            </div>
-        </div>
+        {/* Mobile Menu Overlay */}
+<div
+  className={`md:hidden fixed top-16 left-0 w-full max-w-screen overflow-x-hidden bg-[#030014] transition-all duration-300 ease-in-out ${
+    isOpen
+      ? "opacity-100 translate-y-0"
+      : "opacity-0 -translate-y-full pointer-events-none"
+  }`}
+>
+  <div className="flex flex-col px-4 py-6 space-y-4">
+    {navItems.map((item, index) => (
+      <a
+        key={item.label}
+        href={item.href}
+        onClick={(e) => scrollToSection(e, item.href)}
+        className={`block px-4 py-3 text-xl font-medium transition-all duration-300 ease ${
+          activeSection === item.href.substring(1)
+            ? "bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent font-semibold"
+            : "text-[#e2d3fd] hover:text-white"
+        }`}
+        style={{
+          transitionDelay: `${index * 100}ms`,
+          transform: isOpen ? "translateX(0)" : "translateX(20px)", // keep small slide
+          opacity: isOpen ? 1 : 0,
+        }}
+      >
+        {item.label}
+      </a>
+    ))}
+  </div>
+</div>
+
+       
     </nav>
     
     );

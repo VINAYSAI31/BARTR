@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -40,7 +41,9 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden ">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden  ">
+            <Navbar />
+
       {/* Spline 3D Globe Background */}
       <div className="absolute top-34 w-[4000px] h-[1200px] translate-y-[18%] z-0">
         <iframe

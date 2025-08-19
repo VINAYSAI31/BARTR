@@ -180,7 +180,7 @@ const HowItWorksSection = () => {
   data-aos-delay="300"
   className="flex justify-center text-[#6366f1]"
 >
-  <div className="bg-background/80 backdrop-blur-sm border border-border/50 rounded-2xl p-8 shadow-elegant hover:-translate-y-2 transition-all duration-500 w-full max-w-2xl">
+  <div className="bg-background/80 backdrop-blur-sm border border-border/50 rounded-2xl p-8 shadow-elegant hover:-translate-y-2 transition-all duration-500 w-full max-w-2xl ">
     <h3 className="text-3xl font-bold mb-6 text-center">
       🎟 Token-Based Trading System
     </h3>

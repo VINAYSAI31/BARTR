@@ -4,8 +4,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowRight, Sparkles, TrendingUp } from "lucide-react";
+import { ArrowLeft, ArrowRight, Sparkles, TrendingUp } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import { Link } from "react-router-dom";
 
 type TradeFormData = {
   name: string;
@@ -68,7 +69,14 @@ const Trade = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <div className="fixed top-4 left-4 z-50">
+        <Link
+          to="/"
+          className="text-2xl font-bold bg-gradient-to-r from-[#a855f7] to-[#6366f1] bg-clip-text text-transparent"
+        >
+          BARTR
+        </Link>
+      </div>
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 overflow-hidden">
@@ -76,6 +84,17 @@ const Trade = () => {
         <div className="absolute inset-0  z-10"></div>
         
         <div className="container mx-auto px-4 text-center relative z-20">
+          {/* Back to Home Button */}
+          <div className="flex justify-start mb-6 text-white">
+            
+            <Link to="/">
+              <Button variant="outline" size="sm" className="group">
+                <ArrowLeft className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-0.5 text-white" />
+                Back to Home
+              </Button>
+            </Link>
+          </div>
+
           {/* Header Badge */}
           <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-secondary/50 rounded-full px-4 py-2 mb-8 animate-fade-in-up">
             <TrendingUp className="w-4 h-4 text-secondary" />

@@ -178,16 +178,13 @@ const CTASection = () => {
         style={{ animationDelay: "0.5s" }}
       >
         <div className="bg-secondary/10 backdrop-blur-sm rounded-full p-3">
-          <Sparkles className="w-6 h-6 text-secondary" />
         </div>
       </div>
       <div
-        className="absolute top-20 right-20 animate-float-gentle"
+        className="absolute top-20 left-40 animate-float-gentle"
         style={{ animationDelay: "1.5s" }}
       >
-        <div className="bg-accent/10 backdrop-blur-sm rounded-full p-3">
-          <Users className="w-6 h-6 text-accent" />
-        </div>
+
       </div>
              <Toaster position="bottom-right" reverseOrder={false} />
     </section>

@@ -41,7 +41,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden  ">
+    <section id="Home" className="relative min-h-screen flex items-center justify-center overflow-hidden  ">
             <Navbar />
 
       {/* Spline 3D Globe Background */}

@@ -59,7 +59,7 @@ const HowItWorksSection = () => {
     AOS.init({
       duration: 800,
       offset: 100,
-      once: false, // <- this allows reanimation on scroll
+      once: true, // <- this allows reanimation on scroll
     });
 
     AOS.refresh(); // optional but helps with route-based loading

@@ -9,7 +9,7 @@ const FeaturesSection = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   useEffect(() => {
-    AOS.init({ duration: 800, once: false }); // animate every scroll into view
+    AOS.init({ duration: 800, once: true }); // animate every scroll into view
   }, []);
   
   // useEffect(() => {

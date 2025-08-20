@@ -52,11 +52,11 @@ const Trade = () => {
     
     // Show success notification
     toast({
-      title: "Trade Request Submitted!",
-      description: "Our AI will find you the best pair. Stay tuned!",
-      className: "bg-white text-black border border-gray-200",
+      title: "Demo Request Only",
+      description: "This is just a simulation to show how a trade request would work. No real trades are being executed.",
+      className: "bg-yellow-50 text-yellow-900 border border-yellow-300",
     });
-
+    
     // Reset form
     setFormData({
       name: "",
@@ -105,11 +105,12 @@ const Trade = () => {
           
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-primary-foreground">
-            Ready to
-            <span className="bg-gradient-to-r from-accent via-secondary to-accent bg-clip-text text-transparent animate-shimmer bg-[size:200%_100%]">
-              Trade?
-            </span>
-          </h1>
+  Ready to
+  <span className="ml-4 bg-gradient-to-r from-accent via-secondary to-accent bg-clip-text text-transparent animate-shimmer bg-[size:200%_100%]">
+    Trade?
+  </span>
+</h1>
+
           
           
           {/* Subtitle */}
